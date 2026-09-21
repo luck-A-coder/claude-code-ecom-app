@@ -24,7 +24,12 @@ export function ProductCard({
   const [added, setAdded] = useState(false)
 
   return (
-    <Card className={cn("group/product relative gap-3", className)}>
+    <Card
+      className={cn(
+        "group/product relative gap-3 shadow-subtle transition-[box-shadow,transform,border-color] duration-200 hover:-translate-y-[3px] hover:shadow-product-hover",
+        className
+      )}
+    >
       <div className="relative aspect-square overflow-hidden bg-muted">
         <Image
           src={`https://picsum.photos/seed/${product.imageSeed}/640/640`}
@@ -61,7 +66,7 @@ export function ProductCard({
         <p className="truncate text-xs text-muted-foreground">{product.description}</p>
 
         <div className="mt-1 flex items-center gap-1 text-xs text-muted-foreground">
-          <Star className="size-3.5 fill-amber-500 text-amber-500" />
+          <Star className="size-3.5 fill-tertiary text-tertiary" />
           <span className="font-medium text-foreground">{product.rating}</span>
           <span>({product.reviewCount})</span>
         </div>

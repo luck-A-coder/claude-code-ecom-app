@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, Star, ShieldCheck, Sparkles } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import { ProductCard } from "@/components/product-card"
@@ -30,24 +30,27 @@ export default function Home() {
             <Sparkles className="size-3" data-icon="inline-start" />
             คัดสินค้าใหม่ทุกสัปดาห์
           </Badge>
-          <h1 className="max-w-lg text-4xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl">
+          <h1 className="max-w-lg font-heading text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl">
             อุปกรณ์ไอทีที่ใช่ ส่งถึงมือใน 24 ชั่วโมง
           </h1>
           <p className="max-w-md text-base leading-7 text-muted-foreground">
             สบายTech คัดสรรสมาร์ทโฟน แล็ปท็อป และแกดเจ็ตของแท้ พร้อมทีมงานที่ทดสอบสินค้าเองก่อนวางขายทุกชิ้น
           </p>
           <div className="flex flex-wrap items-center gap-3">
-            <Button size="lg" render={<Link href="#bestsellers" />}>
+            <Link href="#bestsellers" className={buttonVariants({ size: "lg" })}>
               เลือกซื้อสินค้าขายดี
               <ArrowRight data-icon="inline-end" />
-            </Button>
-            <Button size="lg" variant="outline" render={<Link href="#categories" />}>
+            </Link>
+            <Link
+              href="#categories"
+              className={buttonVariants({ size: "lg", variant: "outline" })}
+            >
               ดูหมวดหมู่ทั้งหมด
-            </Button>
+            </Link>
           </div>
           <div className="mt-2 flex items-center gap-6 text-sm text-muted-foreground">
             <div className="flex items-center gap-1.5">
-              <Star className="size-4 fill-amber-500 text-amber-500" />
+              <Star className="size-4 fill-tertiary text-tertiary" />
               <span className="font-medium text-foreground">4.8</span>
               <span>จาก 12,400+ รีวิว</span>
             </div>
@@ -59,7 +62,7 @@ export default function Home() {
         </div>
 
         <div className="relative lg:col-span-6">
-          <div className="relative ml-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-4xl bg-muted sm:max-w-lg">
+          <div className="relative ml-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-xl bg-muted sm:max-w-lg">
             <Image
               src="https://picsum.photos/seed/hero-iphone-16-pro/900/1100"
               alt="iPhone 16 Pro วางอยู่บนโต๊ะไม้"
@@ -69,7 +72,7 @@ export default function Home() {
               className="object-cover"
             />
           </div>
-          <div className="absolute -left-4 bottom-10 aspect-square w-32 overflow-hidden rounded-3xl ring-4 ring-background sm:-left-8 sm:w-40">
+          <div className="absolute -left-4 bottom-10 aspect-square w-32 overflow-hidden rounded-lg ring-4 ring-background sm:-left-8 sm:w-40">
             <Image
               src="https://picsum.photos/seed/hero-airpods-pro-2/400/400"
               alt="AirPods Pro 2 ในเคสชาร์จ"
@@ -94,7 +97,7 @@ export default function Home() {
       <section id="categories" className="mx-auto w-full max-w-7xl scroll-mt-20 px-4 py-16 sm:px-6 lg:px-8">
         <div className="mb-6 flex items-end justify-between gap-4">
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight text-foreground">ช้อปตามหมวดหมู่</h2>
+            <h2 className="font-heading text-2xl font-bold tracking-tight text-foreground">ช้อปตามหมวดหมู่</h2>
             <p className="mt-1 text-sm text-muted-foreground">ครบทุกอุปกรณ์ที่ใช้ในชีวิตประจำวัน</p>
           </div>
         </div>
@@ -103,7 +106,7 @@ export default function Home() {
             <Link
               key={category.slug}
               href="#bestsellers"
-              className="group relative aspect-[4/5] w-36 shrink-0 snap-start overflow-hidden rounded-3xl bg-muted sm:w-auto"
+              className="group relative aspect-[4/5] w-36 shrink-0 snap-start overflow-hidden rounded-lg bg-muted sm:w-auto"
             >
               <Image
                 src={`https://picsum.photos/seed/category-${category.slug}/400/500`}
@@ -126,7 +129,7 @@ export default function Home() {
       <section id="bestsellers" className="mx-auto w-full max-w-7xl scroll-mt-20 px-4 py-16 sm:px-6 lg:px-8">
         <div className="mb-6 flex items-end justify-between gap-4">
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight text-foreground">สินค้าขายดี</h2>
+            <h2 className="font-heading text-2xl font-bold tracking-tight text-foreground">สินค้าขายดี</h2>
             <p className="mt-1 text-sm text-muted-foreground">สินค้าที่ลูกค้าสั่งซื้อซ้ำมากที่สุด</p>
           </div>
           <Link
@@ -182,7 +185,7 @@ export default function Home() {
 
       {/* Promo banner */}
       <section id="deals" className="mx-auto w-full max-w-7xl scroll-mt-20 px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-4xl">
+        <div className="relative overflow-hidden rounded-xl">
           <div className="relative h-72 w-full sm:h-80">
             <Image
               src="https://picsum.photos/seed/promo-banner-week/1600/700"
@@ -195,7 +198,7 @@ export default function Home() {
           </div>
           <div className="absolute inset-y-0 left-0 flex max-w-md flex-col justify-center gap-3 p-8 sm:p-12">
             <Badge variant="destructive" className="w-fit">ดีลประจำสัปดาห์</Badge>
-            <h2 className="text-2xl font-semibold leading-tight tracking-tight text-white sm:text-3xl">
+            <h2 className="font-heading text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl">
               ลดสูงสุด 1,000 บาท กับหูฟังและพาวเวอร์แบงค์
             </h2>
             <p className="text-sm text-white/80">ตั้งแต่วันนี้ถึง 30 กันยายน หรือจนกว่าสินค้าจะหมด</p>
@@ -216,7 +219,7 @@ export default function Home() {
       >
         <div className="mb-6 flex items-end justify-between gap-4">
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight text-foreground">มาใหม่ล่าสุด</h2>
+            <h2 className="font-heading text-2xl font-bold tracking-tight text-foreground">มาใหม่ล่าสุด</h2>
             <p className="mt-1 text-sm text-muted-foreground">เพิ่งเข้าสต๊อกในสัปดาห์นี้</p>
           </div>
         </div>

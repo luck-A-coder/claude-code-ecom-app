@@ -1,18 +1,34 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins, Nunito, Space_Mono, Noto_Sans_Thai } from "next/font/google";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-sans",
+const poppins = Poppins({
+  variable: "--font-heading",
+  subsets: ["latin", "latin-ext"],
+  weight: ["600", "700", "800"],
+});
+
+const nunito = Nunito({
+  variable: "--font-body",
   subsets: ["latin", "latin-ext"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const spaceMono = Space_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+// Poppins/Nunito/Space Mono have no Thai glyphs; this site's copy is Thai, so
+// pair every family with a Thai-capable fallback instead of dropping to the
+// browser default serif for non-Latin text.
+const notoSansThai = Noto_Sans_Thai({
+  variable: "--font-thai",
+  subsets: ["thai"],
+  weight: ["400", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -29,7 +45,15 @@ export default function RootLayout({
   return (
     <html
       lang="th"
-      className={cn("h-full", "antialiased", "font-sans", geistSans.variable, geistMono.variable)}
+      className={cn(
+        "h-full",
+        "antialiased",
+        "font-sans",
+        poppins.variable,
+        nunito.variable,
+        spaceMono.variable,
+        notoSansThai.variable
+      )}
     >
       <body className="flex min-h-full flex-col">
         <a

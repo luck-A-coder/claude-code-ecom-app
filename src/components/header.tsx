@@ -53,7 +53,7 @@ export function Header() {
                   render={
                     <Link
                       href={item.href}
-                      className="rounded-2xl px-3 py-2.5 text-sm font-medium text-foreground hover:bg-muted"
+                      className="rounded-md px-3 py-2.5 text-sm font-medium text-foreground hover:bg-muted"
                     />
                   }
                 >
@@ -69,7 +69,7 @@ export function Header() {
                   render={
                     <Link
                       href="#categories"
-                      className="rounded-2xl px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
+                      className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
                     />
                   }
                 >
