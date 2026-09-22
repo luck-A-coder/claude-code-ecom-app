@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Nunito, Space_Mono, Noto_Sans_Thai } from "next/font/google";
+import { Poppins, Nunito, Space_Mono } from "next/font/google";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { cn } from "@/lib/utils";
@@ -22,19 +22,10 @@ const spaceMono = Space_Mono({
   weight: ["400", "700"],
 });
 
-// Poppins/Nunito/Space Mono have no Thai glyphs; this site's copy is Thai, so
-// pair every family with a Thai-capable fallback instead of dropping to the
-// browser default serif for non-Latin text.
-const notoSansThai = Noto_Sans_Thai({
-  variable: "--font-thai",
-  subsets: ["thai"],
-  weight: ["400", "600", "700", "800"],
-});
-
 export const metadata: Metadata = {
-  title: "สบายTech — ร้านไอทีและแกดเจ็ตออนไลน์",
+  title: "EasyTech — Online IT & Gadget Store",
   description:
-    "สบายTech ร้านไอทีออนไลน์ คัดสรรสมาร์ทโฟน แล็ปท็อป หูฟัง แท็บเล็ต และอุปกรณ์เสริม จัดส่งไวทั่วประเทศ",
+    "EasyTech is an online IT store curating smartphones, laptops, headphones, tablets, and accessories, with fast nationwide shipping.",
 };
 
 export default function RootLayout({
@@ -44,15 +35,14 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="th"
+      lang="en"
       className={cn(
         "h-full",
         "antialiased",
         "font-sans",
         poppins.variable,
         nunito.variable,
-        spaceMono.variable,
-        notoSansThai.variable
+        spaceMono.variable
       )}
     >
       <body className="flex min-h-full flex-col">
@@ -60,7 +50,7 @@ export default function RootLayout({
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground"
         >
-          ข้ามไปเนื้อหาหลัก
+          Skip to main content
         </a>
         <Header />
         <main id="main-content" className="flex flex-1 flex-col">

@@ -7,7 +7,7 @@ test("Page", () => {
   expect(
     screen.getByRole("heading", {
       level: 1,
-      name: "To get started, edit the page.tsx file.",
+      name: "The right tech, delivered in 24 hours",
     })
   ).toBeDefined();
 });

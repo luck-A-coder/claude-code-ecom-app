@@ -9,9 +9,9 @@ import { categoryName, formatTHB, type Product } from "@/lib/mock-data"
 import { cn } from "cn"
 
 const badgeVariant: Record<NonNullable<Product["badge"]>, "default" | "secondary" | "destructive"> = {
-  ขายดี: "secondary",
-  มาใหม่: "default",
-  ลดราคา: "destructive",
+  Bestseller: "secondary",
+  New: "default",
+  Sale: "destructive",
 }
 
 export function ProductCard({
@@ -48,11 +48,11 @@ export function ProductCard({
         )}
         <button
           type="button"
-          aria-label={added ? `เพิ่ม ${product.name} ลงตะกร้าแล้ว` : `เพิ่ม ${product.name} ลงตะกร้า`}
+          aria-label={added ? `Added ${product.name} to cart` : `Add ${product.name} to cart`}
           onClick={() => setAdded(true)}
           disabled={added}
           className={cn(
-            "absolute bottom-3 right-3 flex size-9 translate-y-2 items-center justify-center rounded-full bg-background text-foreground opacity-0 shadow-md ring-1 ring-foreground/10 transition-all duration-200 group-hover/product:translate-y-0 group-hover/product:opacity-100 hover:bg-primary hover:text-primary-foreground disabled:translate-y-0 disabled:opacity-100",
+            "absolute bottom-3 right-3 flex size-9 items-center justify-center rounded-full bg-background text-foreground shadow-md ring-1 ring-foreground/10 transition-all duration-200 hover:bg-primary hover:text-primary-foreground disabled:opacity-100 sm:translate-y-2 sm:opacity-0 sm:group-hover/product:translate-y-0 sm:group-hover/product:opacity-100 sm:disabled:translate-y-0",
             added && "bg-primary text-primary-foreground"
           )}
         >
